@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.ViewStub;
@@ -30,6 +31,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     private Module mModule = null;
     private ResultView mResultView;
 
+
     static class AnalysisResult {
         private final ArrayList<Result> mResults;
 
@@ -50,7 +52,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                 .inflate()
                 .findViewById(R.id.object_detection_texture_view);
     }
-
+    //화면을 다시그려줌
     @Override
     protected void applyToUiAnalyzeImageResult(AnalysisResult result) {
         mResultView.setResults(result.mResults);
@@ -86,7 +88,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     protected AnalysisResult analyzeImage(ImageProxy image, int rotationDegrees) {
         try {
             if (mModule == null) {
-                mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "colacyders100.torchscript.ptl"));
+                mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "콜라2개250.torchscript.ptl"));
             }
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);

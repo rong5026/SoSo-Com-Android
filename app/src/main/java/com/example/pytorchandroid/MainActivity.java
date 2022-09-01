@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, ObjectDetectionActivity.class);
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         }, 1000);
