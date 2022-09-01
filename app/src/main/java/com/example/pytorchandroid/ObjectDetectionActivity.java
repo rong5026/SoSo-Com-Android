@@ -152,7 +152,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
             }
             PrePostProcessor.mClasses = new String[classes.size()];
             classes.toArray(PrePostProcessor.mClasses);
-            PrePostProcessor.화 = classes.size() + 5;
+            PrePostProcessor.mOutputColumn = classes.size() + 5;
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);
             finish();
