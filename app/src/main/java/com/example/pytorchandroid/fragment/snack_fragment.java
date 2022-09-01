@@ -13,22 +13,18 @@ import androidx.fragment.app.Fragment;
 import com.example.pytorchandroid.ObjectDetectionActivity;
 import com.example.pytorchandroid.R;
 
-public class snack_fragment extends Fragment {
-
+public class snack_fragment extends Fragment implements View.OnClickListener{
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.snack,container,false);
-
+        View view = inflater.inflate(R.layout.snack, container, false);
         Button button = (Button) view.findViewById(R.id.snack_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
-                startActivity(intent);
-            }
-        });
-        return (ViewGroup) inflater.inflate(
-                R.layout.snack, container, false);
+        button.setOnClickListener(this);
+        return view;
+    }
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
+        intent.putExtra("modelType", "snack");
+        startActivity(intent);
     }
 }

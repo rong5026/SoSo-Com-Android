@@ -82,22 +82,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }, 1000);
-
-
-        // 물체리스트의 이름을넣음
-        try {
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open("best.txt")));
-            String line;
-            List<String> classes = new ArrayList<>();
-            while ((line = br.readLine()) != null) {
-                classes.add(line);
-            }
-            PrePostProcessor.mClasses = new String[classes.size()];
-            classes.toArray(PrePostProcessor.mClasses);
-        } catch (IOException e) {
-            Log.e("Object Detection", "Error reading assets", e);
-            finish();
-        }
     }
 }
