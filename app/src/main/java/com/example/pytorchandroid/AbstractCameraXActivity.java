@@ -7,6 +7,7 @@
 package com.example.pytorchandroid;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -14,6 +15,7 @@ import android.util.Size;
 import android.view.TextureView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import androidx.annotation.WorkerThread;
@@ -36,12 +38,30 @@ public abstract class AbstractCameraXActivity<R> extends com.example.pytorchandr
     protected abstract TextureView getCameraPreviewTextureView();
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_CAMERA_PERMISSION) {
+            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(
+                                this,
+                                "You can't use object detection example without granting CAMERA permission",
+                                Toast.LENGTH_LONG)
+                        .show();
+                finish();
+            } else {
+                setupCameraX();
+            }
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewLayoutId());
 
         startBackgroundThread();
 
+        //카메라 권한
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
@@ -53,24 +73,9 @@ public abstract class AbstractCameraXActivity<R> extends com.example.pytorchandr
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_CODE_CAMERA_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                Toast.makeText(
-                    this,
-                    "You can't use object detection example without granting CAMERA permission",
-                    Toast.LENGTH_LONG)
-                    .show();
-                finish();
-            } else {
-                setupCameraX();
-            }
-        }
-    }
 
     private void setupCameraX() {
-        final TextureView textureView = getCameraPreviewTextureView();
+        final TextureView textureView = getCameraPreviewTextureView(); // 미리보기를 뿌려줄 textureView를 가져옴
         final PreviewConfig previewConfig = new PreviewConfig.Builder().build();
         final Preview preview = new Preview(previewConfig);
         preview.setOnPreviewOutputUpdateListener(output -> textureView.setSurfaceTexture(output.getSurfaceTexture()));
@@ -83,18 +88,18 @@ public abstract class AbstractCameraXActivity<R> extends com.example.pytorchandr
                 .build();
         final ImageAnalysis imageAnalysis = new ImageAnalysis(imageAnalysisConfig);
         imageAnalysis.setAnalyzer((image, rotationDegrees) -> {
-            if (SystemClock.elapsedRealtime() - mLastAnalysisResultTime < 500) {
+            if (SystemClock.elapsedRealtime() - mLastAnalysisResultTime < 300) {  //이전에 이미지 분석한 시간에서부터 500ms가 지나고 받은 새로운 이미지를 분석
                 return;
             }
 
             final R result = analyzeImage(image, rotationDegrees);
             if (result != null) {
                 mLastAnalysisResultTime = SystemClock.elapsedRealtime();
-                runOnUiThread(() -> applyToUiAnalyzeImageResult(result));
+                runOnUiThread(() -> applyToUiAnalyzeImageResult(result)); // 화면을 갱신
             }
         });
 
-        CameraX.bindToLifecycle(this, preview, imageAnalysis);
+        CameraX.bindToLifecycle(this, preview, imageAnalysis);  // ImageAnalysis와 preview를 각 화면의 생명 주기에 맞출 수 있도록 해 줍니다
     }
 
     @WorkerThread

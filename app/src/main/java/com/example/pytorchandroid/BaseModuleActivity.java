@@ -6,6 +6,7 @@
 
 package com.example.pytorchandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -18,10 +19,13 @@ public class BaseModuleActivity extends AppCompatActivity {
     protected HandlerThread mBackgroundThread;
     protected Handler mBackgroundHandler;
     protected Handler mUIHandler;
+    protected String modelType;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        modelType = intent.getStringExtra("modelType");
         mUIHandler = new Handler(getMainLooper());
     }
 

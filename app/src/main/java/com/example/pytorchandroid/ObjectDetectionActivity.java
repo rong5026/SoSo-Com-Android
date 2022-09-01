@@ -21,14 +21,18 @@ import org.pytorch.Module;
 import org.pytorch.Tensor;
 import org.pytorch.torchvision.TensorImageUtils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetectionActivity.AnalysisResult> {
     private Module mModule = null;
     private ResultView mResultView;
+
 
     static class AnalysisResult {
         private final ArrayList<Result> mResults;
@@ -50,7 +54,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                 .inflate()
                 .findViewById(R.id.object_detection_texture_view);
     }
-
+    //화면을 다시그려줌
     @Override
     protected void applyToUiAnalyzeImageResult(AnalysisResult result) {
         mResultView.setResults(result.mResults);
@@ -86,12 +90,24 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     protected AnalysisResult analyzeImage(ImageProxy image, int rotationDegrees) {
         try {
             if (mModule == null) {
-                mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "colacyders100.torchscript.ptl"));
+                setClassText(modelType);
+                switch (modelType){
+                    case "beverage":
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
+                        break;
+                    case "noodle":
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle.ptl"));
+                        break;
+                    case "snack":
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "snack.ptl"));
+                        break;
+                }
             }
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);
             return null;
         }
+
         Bitmap bitmap = imgToBitmap(image.getImage());
         Matrix matrix = new Matrix();
         matrix.postRotate(90.0f);
@@ -110,5 +126,35 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
 
         final ArrayList<Result> results = PrePostProcessor.outputsToNMSPredictions(outputs, imgScaleX, imgScaleY, ivScaleX, ivScaleY, 0, 0);
         return new AnalysisResult(results);
+    }
+
+    private void setClassText(String modelType){
+        // 물체리스트의 이름을넣음
+        try {
+            String fileName = "";
+            switch (modelType){
+                case "beverage":
+                    fileName = "beverage.txt";
+                    break;
+                case "noodle":
+                    fileName = "noodle.txt";
+                    break;
+                case "snack":
+                    fileName = "snack.txt";
+                    break;
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open(fileName)));
+            String line;
+            List<String> classes = new ArrayList<>();
+            while ((line = br.readLine()) != null) {
+                classes.add(line);
+            }
+            PrePostProcessor.mClasses = new String[classes.size()];
+            classes.toArray(PrePostProcessor.mClasses);
+        } catch (IOException e) {
+            Log.e("Object Detection", "Error reading assets", e);
+            finish();
+        }
     }
 }
