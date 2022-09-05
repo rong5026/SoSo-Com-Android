@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,7 @@ public class HomeActivity extends FragmentActivity{
     private static final int NUM_PAGES = 4;
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
-
+    private long backKeyPressedTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +44,25 @@ public class HomeActivity extends FragmentActivity{
     }
 
 
-
+    // 뒤로가기 버튼 이벤트
     @Override
     public void onBackPressed() {
-        if (viewPager.getCurrentItem() == 0) {
-            super.onBackPressed();
-        } else {
 
-            viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+        if(System.currentTimeMillis() > backKeyPressedTime + 1500){
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this,"한번더 버튼을 누르시면 종료됩니다",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(System.currentTimeMillis() <= backKeyPressedTime + 1500){
+            moveTaskToBack(true);
+            finishAndRemoveTask();
+            System.exit(0);
         }
     }
 
 
-
+    // Fragment 전환
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
         public ScreenSlidePagerAdapter(FragmentActivity fa) {
             super(fa);
