@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,12 @@ import java.util.Locale;
 
 public class HomeActivity extends FragmentActivity{
 
-
-
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private long backKeyPressedTime = 0;
-    private TextToSpeech tts;
+    public TextToSpeech textToSpeech;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,19 +47,16 @@ public class HomeActivity extends FragmentActivity{
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
 
-        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener(){
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener(){
 
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.SUCCESS){
-                    tts.setLanguage(Locale.KOREAN);
+                    textToSpeech.setLanguage(Locale.KOREAN);
                 }
 
             }
         });
-
-
-
     }
 
     // 뒤로가기 버튼 이벤트
@@ -67,14 +65,15 @@ public class HomeActivity extends FragmentActivity{
 
         if(System.currentTimeMillis() > backKeyPressedTime + 6000){
             backKeyPressedTime = System.currentTimeMillis();
-            Toast.makeText(this, Constants.END_RECONFIRM,Toast.LENGTH_SHORT).show();
-            tts.speak(Constants.END_RECONFIRM, TextToSpeech.QUEUE_FLUSH,null);
+            showTest(Constants.END_RECONFIRM);    //종료안내 텍스트문구
+            startTextToString(Constants.END_RECONFIRM);  // 종료안내 음성문구
             return;
         }
 
         if(System.currentTimeMillis() <= backKeyPressedTime + 6000){
 
-            tts.speak(Constants.END_MESSAGE, TextToSpeech.QUEUE_FLUSH,null);
+            startTextToString(Constants.END_MESSAGE);
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -97,11 +96,16 @@ public class HomeActivity extends FragmentActivity{
         @Override
         public Fragment createFragment(int position) {
 
-            if(position==0) return new notice_fragment();
-            else if(position==1)  return new beverage_fragment();
-            else if(position==2)  return new noodle_fragment();
-            else return new snack_fragment();
-
+            switch (position){
+                case 0:
+                    return new notice_fragment(textToSpeech,HomeActivity.this);
+                case 1:
+                    return new beverage_fragment(textToSpeech,HomeActivity.this);
+                case 2:
+                    return new noodle_fragment(textToSpeech,HomeActivity.this);
+                default:
+                    return new snack_fragment(textToSpeech,HomeActivity.this);
+            }
         }
         @Override
         public int getItemCount() {
@@ -113,10 +117,19 @@ public class HomeActivity extends FragmentActivity{
     protected void onDestroy() {
         super.onDestroy();
         // TTS 객체가 남아있다면 실행을 중지하고 메모리에서 제거
-        if(tts != null){
-            tts.stop();
-            tts.shutdown();
-            tts = null;
+        if(textToSpeech != null){
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+            textToSpeech = null;
         }
+    }
+
+    // TTS
+    public void startTextToString(String text){
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+    }
+    //텍스트 문구
+    public void showTest(String text){
+        Toast.makeText(this, text,Toast.LENGTH_SHORT).show();
     }
 }
