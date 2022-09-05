@@ -3,6 +3,8 @@ package com.example.pytorchandroid;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,14 +23,18 @@ import com.example.pytorchandroid.fragment.beverage_fragment;
 import com.example.pytorchandroid.fragment.noodle_fragment;
 import com.example.pytorchandroid.fragment.notice_fragment;
 import com.example.pytorchandroid.fragment.snack_fragment;
+import com.example.pytorchandroid.utility.Constants;
+
+import java.util.Locale;
 
 public class HomeActivity extends FragmentActivity{
 
 
-    private static final int NUM_PAGES = 4;
+
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private long backKeyPressedTime = 0;
+    private TextToSpeech tts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,24 +46,44 @@ public class HomeActivity extends FragmentActivity{
         pagerAdapter = new ScreenSlidePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
 
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener(){
+
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.SUCCESS){
+                    tts.setLanguage(Locale.KOREAN);
+                }
+
+            }
+        });
+
+
 
     }
-
 
     // 뒤로가기 버튼 이벤트
     @Override
     public void onBackPressed() {
 
-        if(System.currentTimeMillis() > backKeyPressedTime + 1500){
+        if(System.currentTimeMillis() > backKeyPressedTime + 6000){
             backKeyPressedTime = System.currentTimeMillis();
-            Toast.makeText(this,"한번더 버튼을 누르시면 종료됩니다",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, Constants.END_RECONFIRM,Toast.LENGTH_SHORT).show();
+            tts.speak(Constants.END_RECONFIRM, TextToSpeech.QUEUE_FLUSH,null);
             return;
         }
 
-        if(System.currentTimeMillis() <= backKeyPressedTime + 1500){
-            moveTaskToBack(true);
-            finishAndRemoveTask();
-            System.exit(0);
+        if(System.currentTimeMillis() <= backKeyPressedTime + 6000){
+
+            tts.speak(Constants.END_MESSAGE, TextToSpeech.QUEUE_FLUSH,null);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    moveTaskToBack(true);
+                    finishAndRemoveTask();
+                    System.exit(0);
+                }
+            },2000);
+
         }
     }
 
@@ -77,10 +103,20 @@ public class HomeActivity extends FragmentActivity{
             else return new snack_fragment();
 
         }
-
         @Override
         public int getItemCount() {
-            return NUM_PAGES;
+            return Constants.NUM_PAGES;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // TTS 객체가 남아있다면 실행을 중지하고 메모리에서 제거
+        if(tts != null){
+            tts.stop();
+            tts.shutdown();
+            tts = null;
         }
     }
 }
