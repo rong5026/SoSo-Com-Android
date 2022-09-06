@@ -12,11 +12,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.speech.tts.TextToSpeech;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class ResultView extends View {
@@ -61,12 +63,12 @@ public class ResultView extends View {
             mPaintText.setStrokeWidth(0);
             mPaintText.setStyle(Paint.Style.FILL);
             mPaintText.setTextSize(32);
-
             canvas.drawText(String.format("%s %.2f", PrePostProcessor.mClasses[result.classIndex], result.score), result.rect.left + TEXT_X, result.rect.top + TEXT_Y, mPaintText);
+
         }
     }
 
-    public void setResults(ArrayList<Result> results) {
+    public void setResults(ArrayList<Result> results ) {
         mResults = results;
     }
 }

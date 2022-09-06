@@ -29,6 +29,8 @@ public class BaseModuleActivity extends AppCompatActivity {
         mUIHandler = new Handler(getMainLooper());
     }
 
+
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -43,6 +45,7 @@ public class BaseModuleActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        Log.d("종료","종료");
         stopBackgroundThread();
         super.onDestroy();
     }

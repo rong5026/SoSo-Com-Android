@@ -7,6 +7,8 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
+import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.TextureView;
 import android.view.ViewStub;
@@ -31,11 +33,27 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetectionActivity.AnalysisResult> {
     private Module mModule = null;
     private ResultView mResultView;
+    public TextToSpeech textToSpeech;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener(){
+
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.SUCCESS){
+                    textToSpeech.setLanguage(Locale.KOREAN);
+                }
+            }
+        });
+
+    }
 
     static class AnalysisResult {
         private final ArrayList<Result> mResults;
@@ -63,6 +81,9 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         mResultView.setResults(result.mResults);
         mResultView.invalidate();
 
+        for(Result results :result.mResults){
+            textToSpeech.speak(PrePostProcessor.mClasses[results.classIndex], TextToSpeech.QUEUE_ADD,null);
+        }
 
     }
 
@@ -161,6 +182,16 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);
             finish();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // TTS 객체가 남아있다면 실행을 중지하고 메모리에서 제거
+        if(textToSpeech != null){
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+            textToSpeech = null;
         }
     }
 }
