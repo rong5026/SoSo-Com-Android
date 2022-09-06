@@ -13,7 +13,7 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import com.example.pytorchandroid.HomeActivity;
-import com.example.pytorchandroid.ObjectDetectionActivity;
+import com.example.pytorchandroid.objectdetection.ObjectDetectionActivity;
 import com.example.pytorchandroid.R;
 
 public class snack_fragment extends Fragment implements View.OnClickListener{
