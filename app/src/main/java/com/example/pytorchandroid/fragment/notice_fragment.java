@@ -36,7 +36,7 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.picachu);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.message);
         mediaPlayer.start();
     }
 
