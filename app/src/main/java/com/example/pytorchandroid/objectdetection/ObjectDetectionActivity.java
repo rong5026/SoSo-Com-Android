@@ -122,10 +122,10 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "noodle":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "snack":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "snack.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                 }
             }
