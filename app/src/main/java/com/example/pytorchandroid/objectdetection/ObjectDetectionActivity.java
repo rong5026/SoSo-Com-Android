@@ -114,23 +114,26 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     @WorkerThread
     @Nullable
     protected AnalysisResult analyzeImage(ImageProxy image, int rotationDegrees) {
+        //Log.e("test", "inFirst : " + String.valueOf(PrePostProcessor.mOutputColumn));
         try {
             if (mModule == null) {
+                //Log.e("test",modelType);
                 setClassText(modelType);
-                switch (modelType){
+                switch (modelType) {
                     case "beverage":
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "noodle":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle_best_epoch100.ptl"));
                         break;
                     case "snack":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "snack.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "best_torchscript.ptl"));
                         break;
                 }
+                //Log.e("test","inAnalysis : " + PrePostProcessor.mOutputColumn);
             }
         } catch (IOException e) {
-            Log.e("Object Detection", "Error reading assets", e);
+            //Log.e("Object Detection", "Error reading assets", e);
             return null;
         }
 

@@ -7,6 +7,7 @@
 package com.example.pytorchandroid.objectdetection;
 
 import android.graphics.Rect;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,9 +37,9 @@ public class PrePostProcessor {
 
     // model output is of size 25200*(num_of_class+5)
     private static int mOutputRow = 25200; // as decided by the YOLOv5 model for input image of size 640*640
-    public static int mOutputColumn = 7; // left, top, right, bottom, score and 80 class probability
+    public static int mOutputColumn = 0; // left, top, right, bottom, score and 80 class probability
     private static float mThreshold = 0.65f; // score above which a detection is generated
-    private static int mNmsLimit = 15;
+    private static int mNmsLimit = 100;
 
     static String[] mClasses;
 
@@ -117,6 +118,7 @@ public class PrePostProcessor {
     }
 
     static ArrayList<Result> outputsToNMSPredictions(float[] outputs, float imgScaleX, float imgScaleY, float ivScaleX, float ivScaleY, float startX, float startY) {
+        //Log.e("test", "inResult :" + mOutputColumn);
         ArrayList<Result> results = new ArrayList<>();
         for (int i = 0; i< mOutputRow; i++) {
             if (outputs[i* mOutputColumn +4] > mThreshold) {
