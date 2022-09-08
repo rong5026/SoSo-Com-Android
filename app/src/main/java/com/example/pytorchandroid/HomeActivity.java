@@ -33,7 +33,7 @@ public class HomeActivity extends FragmentActivity{
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private long backKeyPressedTime = 0;
-    public TextToSpeech textToSpeech;
+    public static TextToSpeech textToSpeech;
 
 
     @Override
