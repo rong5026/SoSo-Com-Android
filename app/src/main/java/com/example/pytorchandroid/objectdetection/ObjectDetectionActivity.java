@@ -114,7 +114,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "noodle":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle_best_epoch_20.ptl"));
                         break;
                     case "snack":
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
@@ -146,11 +146,11 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         return new AnalysisResult(results);
     }
 
-    private void setClassText(String modelType){
+    private void setClassText(String modelType) {
         // 물체리스트의 이름을넣음
         try {
             String fileName = "";
-            switch (modelType){
+            switch (modelType) {
                 case "beverage":
                     fileName = "beverage.txt";
                     break;
@@ -176,7 +176,4 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
             finish();
         }
     }
-
-
-
 }
