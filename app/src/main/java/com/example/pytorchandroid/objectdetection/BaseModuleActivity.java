@@ -44,7 +44,6 @@ public class BaseModuleActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Log.d("종료","종료");
         stopBackgroundThread();
         super.onDestroy();
     }

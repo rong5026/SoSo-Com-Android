@@ -33,7 +33,7 @@ public class HomeActivity extends FragmentActivity{
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private long backKeyPressedTime = 0;
-    public TextToSpeech textToSpeech;
+    public static TextToSpeech textToSpeech;
 
 
     @Override
@@ -54,7 +54,6 @@ public class HomeActivity extends FragmentActivity{
                 if(status != TextToSpeech.SUCCESS){
                     textToSpeech.setLanguage(Locale.KOREAN);
                 }
-
             }
         });
     }
@@ -98,13 +97,13 @@ public class HomeActivity extends FragmentActivity{
 
             switch (position){
                 case 0:
-                    return new notice_fragment(textToSpeech,HomeActivity.this);
+                    return new notice_fragment(HomeActivity.this);
                 case 1:
-                    return new beverage_fragment(textToSpeech,HomeActivity.this);
+                    return new beverage_fragment(HomeActivity.this);
                 case 2:
-                    return new noodle_fragment(textToSpeech,HomeActivity.this);
+                    return new noodle_fragment(HomeActivity.this);
                 default:
-                    return new snack_fragment(textToSpeech,HomeActivity.this);
+                    return new snack_fragment(HomeActivity.this);
             }
         }
         @Override

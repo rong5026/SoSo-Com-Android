@@ -18,11 +18,10 @@ import com.example.pytorchandroid.R;
 
 public class beverage_fragment extends Fragment implements View.OnClickListener{
 
-    private TextToSpeech textToSpeech;
+
     private Context context;
 
-    public beverage_fragment(TextToSpeech textToSpeech, Context context) {
-        this.textToSpeech =textToSpeech;
+    public beverage_fragment( Context context) {
         this.context = context;
     }
 

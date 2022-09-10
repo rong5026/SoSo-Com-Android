@@ -18,11 +18,10 @@ import com.example.pytorchandroid.R;
 
 public class noodle_fragment extends Fragment implements View.OnClickListener{
 
-    private TextToSpeech textToSpeech;
+
     private Context context;
 
-    public noodle_fragment(TextToSpeech textToSpeech, Context context) {
-        this.textToSpeech =textToSpeech;
+    public noodle_fragment(  Context context) {
         this.context = context;
     }
     @Override

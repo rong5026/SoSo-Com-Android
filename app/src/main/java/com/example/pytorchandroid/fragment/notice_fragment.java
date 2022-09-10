@@ -23,12 +23,11 @@ import com.example.pytorchandroid.utility.Constants;
 
 public class notice_fragment extends Fragment implements View.OnClickListener{
 
-    private TextToSpeech textToSpeech;
+
     private MediaPlayer mediaPlayer;
     private Context context;
 
-    public notice_fragment(TextToSpeech textToSpeech,Context context) {
-        this.textToSpeech =textToSpeech;
+    public notice_fragment(Context context) {
         this.context = context;
     }
 

@@ -18,11 +18,9 @@ import com.example.pytorchandroid.R;
 
 public class snack_fragment extends Fragment implements View.OnClickListener{
 
-    private TextToSpeech textToSpeech;
     private Context context;
 
-    public snack_fragment(TextToSpeech textToSpeech, Context context) {
-        this.textToSpeech =textToSpeech;
+    public snack_fragment( Context context) {
         this.context = context;
     }
 
