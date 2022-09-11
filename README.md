@@ -11,7 +11,7 @@
 
 
 
-### 배경
+### 🌱 배경
 * [뉴스기사](https://www.fnnews.com/news/202203211831219738) 및 유튜버 ‘원샷한솔’님의 컨텐츠들을 보면서 점자 표시 미흡으로 인한 시각장애인분들의 불편함을 인지
 * https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)
 * https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)
@@ -21,7 +21,7 @@
 
 
 
-### 기능
+### 🌱 기능
 * 음성을 활용하여 어플 실행 및, 안내
 * 카메라를 활용하여 실시간으로 화면에 노출되어있는 품목의 정보를 음성으로 출력
 * 음성으로 입력한 품목이 탐지될경우 알려주는 기능 
@@ -29,7 +29,7 @@
 
 
 
-### 데이터셋
+### 🌱 데이터셋
 * AI Hub '상품 이미지' 데이터 사용
 * roboflow를 활용하여 yolov5-pytorch용 데이터셋 구축
 * ptl모델로 변환 후 android에서 사용
@@ -67,7 +67,7 @@
 
 
 
-### 참조
+### 🌱 참조
 * https://github.com/ultralytics/yolov5
 * https://github.com/pytorch/android-demo-app/tree/master/ObjectDetection
 
