@@ -35,6 +35,8 @@
 * roboflow를 활용하여 yolov5-pytorch용 데이터셋 구축
 * ptl모델로 변환 후 android에서 사용
 
+![results](https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png)
+
 ### 참조
 * https://github.com/ultralytics/yolov5
 * https://github.com/pytorch/android-demo-app/tree/master/ObjectDetection
