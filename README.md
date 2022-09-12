@@ -32,7 +32,7 @@
 ### 🌱 데이터셋
 * AI Hub '상품 이미지' 데이터 사용
 * roboflow를 활용하여 yolov5-pytorch용 데이터셋 구축
-* [colab](https://github.com/En-soso-com/Android/blob/main/yolov5_train_ptl.ipynb)을 활용하여 학습진행
+* [yolov5_train_ptl.ipynb](https://github.com/En-soso-com/Android/blob/main/yolov5_train_ptl.ipynb)을 활용하여 학습진행
 * ptl모델로 변환 후 android에서 사용
 
 
