@@ -1,20 +1,10 @@
 package com.example.pytorchandroid;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -23,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.pytorchandroid.fragment.beverage_fragment;
 import com.example.pytorchandroid.fragment.noodle_fragment;
 import com.example.pytorchandroid.fragment.notice_fragment;
+import com.example.pytorchandroid.fragment.search_fragment;
 import com.example.pytorchandroid.fragment.snack_fragment;
 import com.example.pytorchandroid.utility.Constants;
 
@@ -99,8 +90,10 @@ public class HomeActivity extends FragmentActivity{
                 case 0:
                     return new notice_fragment(HomeActivity.this);
                 case 1:
-                    return new beverage_fragment(HomeActivity.this);
+                    return new search_fragment(HomeActivity.this);
                 case 2:
+                    return new beverage_fragment(HomeActivity.this);
+                case 3:
                     return new noodle_fragment(HomeActivity.this);
                 default:
                     return new snack_fragment(HomeActivity.this);
