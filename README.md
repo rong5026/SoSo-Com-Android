@@ -36,6 +36,23 @@
 * ptl모델로 변환 후 android에서 사용
 
 
+### 과제품목 데이터셋
+
+|<sub>순번</sub>|<sub>품목</sub>|<sub>순번</sub>|<sub>품목</sub>|<sub>순번</sub>|<sub>품목</sub>|<sub>순번</sub>|<sub>품목</sub>|
+|----|----|----|----|----|----|----|----|
+|<sub>1</sub>|<sub><sup>농심켈로그)프링글스마늘감자구이맛110G</sup></sub>|<sub>14</sub>|<sub><sup>오리온촉촉한초코칩240G</sup></sub>|<sub>27</sub>|<sub><sup>크라운초코하임142G</sup></sub>|<sub>40</sub>|<sub><sup>농심오징어집83G</sup></sub>|
+|<sub>2</sub>|<sub><sup>농심켈로그)프링글스버팔로윙맛110G</sup></sub>|<sub>15</sub>|<sub><sup>롯데)롯샌파인애플315G</sup></sub>|<sub>28</sub>|<sub><sup>롯데야채크래커249G<sub></sub>|<sub>41</sub>|<sub><sup>롯데석기시대90G</sup></sub>|
+|<sub>3</sub>|<sub><sup>오리온)포카칩오리지널66G</sup></sub>|<sub>16</sub>|<sub><sup>농심수미칩오리지널85G</sup></sub>|<sub>29</sub>|<sub><sup>롯데빠다코코낫300G</sub><sub>|<sub>42</sub>|<sub><sup>해태오예스360G</sup></sub>|
+|<sub>4</sub>|<sub><sup>스모키베이컨칩매콤불맛70G</sup></sub>|<sub>17</sub>|<sub><sup>프링글스오리지날110G</sup></sub>|<sub>30</sub>|<sub><sup>꼬깔콘고소한맛72G</sup></sub>|<sub>43</sub>|<sub><sup>롯데ABC밀크65G</sup></sub>|
+|<sub>5</sub>|<sub><sup>농심)프링글스클래식110G</sup></sub>|<sub>18</sub>|<sub><sup>해태롤리폴리초코196G</sup></sub>|<sub>31</sub>|<sub><sup>농심매운새우깡90G</sup></sub>|<sub>44</sub>|<sub><sup>농심)프링글스버터캬라멜110G</sup></sub>|
+|<sub>6</sub>|<sub><sup>농심칩포테토오리지날125G</sup></sub>|<sub>19</sub>|<sub><sup>크라운쫀득초코칩240G</sup></sub>|<sub>32</sub>|<sub><sup>매일킨더초코렛T4</sup></sub>|<sub>45</sub>|<sub><sup>롯데)롯샌화이트크림깜뜨315G</sup></sub>|
+|<sub>7</sub>|<sub><sup>오리온후레쉬베리딸기336G</sup></sub>|<sub>20</sub>|<sub><sup>오리온초코칩쿠키256G</sup></sub>|<sub>33</sub>|<sub><sup>롯데초코파이420G</sup></sub>|<sub>46</sub>|<sub><sup>켈로그)프링글스사워크림</sup></sub>|
+|<sub>8</sub>|<sub><sup>해태오예스쿠키앤크림360G</sup></sub>|<sub>21</sub>|<sub><sup>크라운빅파이딸기324G</sup></sub>|<sub>34</sub>|<sub><sup>삼립누네띠네500G</sup></sub>|<sub>47</sub>|<sub><sup>오리온)예감치즈그라탕2P64G</sup></sub>|
+|<sub>9</sub>|<sub><sup>농심)프링글스클래식53G</sup></sub>|<sub>22</sub>|<sub><sup>해태)허니버터칩38G</sup></sub>|<sub>35</sub>|<sub><sup>크라운쿠크다스화이트토르테64G</sup></sub>|<sub>48</sub>|<sub><sup>삼양)사또밥갈릭버터맛52G</sup></sub>|
+|<sub>10</sub>|<sub><sup>롯데마가렛트오리지널88G</sup></sub>|<sub>23</sub>|<sub><sup>농심수미칩어니언85G</sup></sub>|<sub>36</sub>|<sub><sup>크라운)콘초66G</sup></sub>|<sub>49</sub>|<sub><sup>해태)맛동산90G</sup></sub>|
+|<sub>11</sub>|<sub><sup>오리온)초코파이(12입)468G</sup></sub>|<sub>24</sub>|<sub><sup>롯데몽쉘오리지날생크림케이크384G</sup></sub>|<sub>37</sub>|<sub><sup>농심알새우칩68G</sup></sub>|<sub></sub>|<sub><sup></sup></sub>|
+|<sub>12</sub>|<sub><sup>크라운국희땅콩샌드155G</sup></sub>|<sub>25</sub>|<sub><sup>롯데)오징어땅콩90G</sup></sub>|<sub>38</sub>|<sub><sup>농심바나나킥75G</sup></sub>|<sub></sub>|<sub><sup></sup></sub>|
+|<sub>13</sub>|<sub><sup>동서오레오초콜릿샌드위치쿠키100G</sup></sub>|<sub>26</sub>|<sub><sup>프링글스치즈맛110G</sup></sub>|<sub>39</sub>|<sub><sup>오리온고소미80G</sup></sub>|<sub></sub>|<sub><sup></sup></sub>|
 
 
 ### 라면품목 데이터셋
