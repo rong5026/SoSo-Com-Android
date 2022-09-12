@@ -36,7 +36,7 @@
 * ptl모델로 변환 후 android에서 사용
 
 
-### 과자품목 데이터셋
+### 🍭 과자품목 데이터셋
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
 |----|----|----|----|----|----|----|----|
@@ -55,7 +55,7 @@
 |<sub><sup>13</sup></sub>|<sub><sup>동서오레오초콜릿샌드위치쿠키100G</sup></sub>|<sub><sup>26</sup></sub>|<sub><sup>프링글스치즈맛110G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>오리온고소미80G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 
 
-### 라면품목 데이터셋
+### 🍜 라면품목 데이터셋
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
 |----|----|----|----|----|----|----|----|
