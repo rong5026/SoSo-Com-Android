@@ -2,10 +2,11 @@
 ### 시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
 
 <p>
-  <img src="https://img.shields.io/badge/Python-0000FF?style=flat-square&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Android-008000?style=flat-square&logo=android&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Pytorch-FF8C00?style=flat-square&logo=pytorch&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Yolov5-4682B4?style=flat-square&logo=yolo&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat-square&logo=Google Colab&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Pytorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Yolov5-00FFFF?style=flat-square&logo=yolo&logoColor=white"/>
 </p>
 
 
