@@ -120,6 +120,10 @@ public class HomeActivity extends FragmentActivity{
     public void startTextToString(String text){
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
     }
+    public void startSearchTextToString(String text){
+        textToSpeech.setSpeechRate(0.7f);
+        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+    }
     //텍스트 문구
     public void showTest(String text){
         Toast.makeText(this, text,Toast.LENGTH_SHORT).show();

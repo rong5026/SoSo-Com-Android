@@ -3,16 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
 
     <Button
         android:id="@+id/search_button"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="689dp"
+        android:fontFamily="@font/gmarket_sans_ttf_bold"
         android:text="검색"
         android:textSize="40sp"
-        android:fontFamily="@font/gmarket_sans_ttf_bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/search_text"
+        android:layout_width="213dp"
+        android:layout_height="34dp"
+        android:text="음성인식"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
