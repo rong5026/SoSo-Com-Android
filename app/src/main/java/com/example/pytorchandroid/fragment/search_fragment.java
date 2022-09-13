@@ -114,6 +114,7 @@ public class search_fragment extends Fragment implements View.OnClickListener{
                 if (mDoubleClickFlag >= 2) {
                     if (mediaPlayer.isPlaying()){
                         mediaPlayer.stop();
+                        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.search_explain);
                     }
 
                     mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드

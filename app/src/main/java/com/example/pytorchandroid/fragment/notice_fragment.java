@@ -59,7 +59,6 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     public void onPause() {
         super.onPause();
         mediaPlayer.stop();
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.first);
         explainPlayer.stop();
         explainPlayer = MediaPlayer.create(getActivity(), R.raw.main_explain);
     }
