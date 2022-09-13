@@ -1,10 +1,14 @@
 package com.example.pytorchandroid;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -15,6 +19,7 @@ import com.example.pytorchandroid.fragment.noodle_fragment;
 import com.example.pytorchandroid.fragment.notice_fragment;
 import com.example.pytorchandroid.fragment.search_fragment;
 import com.example.pytorchandroid.fragment.snack_fragment;
+import com.example.pytorchandroid.objectdetection.AbstractCameraXActivity;
 import com.example.pytorchandroid.utility.Constants;
 
 import java.util.Locale;
@@ -46,8 +51,8 @@ public class HomeActivity extends FragmentActivity{
                     textToSpeech.setLanguage(Locale.KOREAN);
                 }
             }
-
         });
+
     }
 
     // 뒤로가기 버튼 이벤트

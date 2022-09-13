@@ -87,7 +87,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                 if(PrePostProcessor.mClasses[results.classIndex].contains(modelType)) {
                     HomeActivity.textToSpeech.speak(PrePostProcessor.mClasses[results.classIndex], TextToSpeech.QUEUE_ADD, null);
                     HomeActivity.textToSpeech.speak("을 발견하였습니다", TextToSpeech.QUEUE_ADD, null);
-                    
+
 
                 }
             }

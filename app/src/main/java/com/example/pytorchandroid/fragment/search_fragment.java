@@ -53,11 +53,6 @@ public class search_fragment extends Fragment implements View.OnClickListener{
 
         textView = (TextView) view.findViewById(R.id.search_text);
 
-        //안드로이드 6.0 이상
-        if(Build.VERSION.SDK_INT >= 23){
-            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.INTERNET,
-                    Manifest.permission.RECORD_AUDIO}, Constants.PERMISSION);
-        }
 
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,getActivity().getPackageName()); // 여분의 키
