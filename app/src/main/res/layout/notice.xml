@@ -5,15 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/notice_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="안내문구"
         android:textSize="40sp"
+        android:textColor="@color/black"
+        style="?attr/materialButtonOutlinedStyle"
         android:fontFamily="@font/gmarket_sans_ttf_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>

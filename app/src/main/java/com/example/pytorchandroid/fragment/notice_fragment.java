@@ -50,6 +50,12 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         ((HomeActivity)context).startTextToString("안내문구");
@@ -57,6 +63,7 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     }
 
     public void onClick(View view){
+
         mediaPlayer.start();
     }
 

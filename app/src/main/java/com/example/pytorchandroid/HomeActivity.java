@@ -1,10 +1,16 @@
 package com.example.pytorchandroid;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -15,8 +21,15 @@ import com.example.pytorchandroid.fragment.noodle_fragment;
 import com.example.pytorchandroid.fragment.notice_fragment;
 import com.example.pytorchandroid.fragment.search_fragment;
 import com.example.pytorchandroid.fragment.snack_fragment;
+import com.example.pytorchandroid.objectdetection.AbstractCameraXActivity;
 import com.example.pytorchandroid.utility.Constants;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class HomeActivity extends FragmentActivity{
@@ -47,6 +60,10 @@ public class HomeActivity extends FragmentActivity{
                 }
             }
         });
+
+
+
+
     }
 
     // 뒤로가기 버튼 이벤트
@@ -67,12 +84,11 @@ public class HomeActivity extends FragmentActivity{
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    moveTaskToBack(true);
+                     moveTaskToBack(true);
                     finishAndRemoveTask();
                     System.exit(0);
                 }
             },2000);
-
         }
     }
 
@@ -118,12 +134,12 @@ public class HomeActivity extends FragmentActivity{
 
     // TTS
     public void startTextToString(String text){
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+        textToSpeech.speak(text, TextToSpeech. QUEUE_FLUSH,null);
     }
-    public void startSearchTextToString(String text){
-        textToSpeech.setSpeechRate(0.7f);
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+    public void startTextToStringAdd(String text){
+        textToSpeech.speak(text, TextToSpeech. QUEUE_ADD,null);
     }
+
     //텍스트 문구
     public void showTest(String text){
         Toast.makeText(this, text,Toast.LENGTH_SHORT).show();
