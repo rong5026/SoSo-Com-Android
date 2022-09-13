@@ -2,10 +2,12 @@ package com.example.pytorchandroid;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -22,6 +24,12 @@ import com.example.pytorchandroid.fragment.snack_fragment;
 import com.example.pytorchandroid.objectdetection.AbstractCameraXActivity;
 import com.example.pytorchandroid.utility.Constants;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class HomeActivity extends FragmentActivity{
@@ -52,6 +60,9 @@ public class HomeActivity extends FragmentActivity{
                 }
             }
         });
+
+
+
 
     }
 

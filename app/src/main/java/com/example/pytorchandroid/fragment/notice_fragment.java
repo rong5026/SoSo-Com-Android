@@ -52,10 +52,8 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     @Override
     public void onPause() {
         super.onPause();
-        onDestroy();
+        mediaPlayer.stop();
     }
-
-
 
     @Override
     public void onResume() {
@@ -66,7 +64,6 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
 
     public void onClick(View view){
 
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.message);
         mediaPlayer.start();
     }
 

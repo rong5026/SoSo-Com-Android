@@ -35,12 +35,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
 public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetectionActivity.AnalysisResult> {
     private Module mModule = null;
     private ResultView mResultView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,6 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         mResultView.invalidate();
 
 
-
         if(modelType.equals("beverage") || modelType.equals("noodle") || modelType.equals("snack")){
 
             for(Result results :result.mResults){
@@ -95,28 +96,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     }
 
 
-    private Bitmap imgToBitmap(Image image) {
-        Image.Plane[] planes = image.getPlanes();
-        ByteBuffer yBuffer = planes[0].getBuffer();
-        ByteBuffer uBuffer = planes[1].getBuffer();
-        ByteBuffer vBuffer = planes[2].getBuffer();
 
-        int ySize = yBuffer.remaining();
-        int uSize = uBuffer.remaining();
-        int vSize = vBuffer.remaining();
-
-        byte[] nv21 = new byte[ySize + uSize + vSize];
-        yBuffer.get(nv21, 0, ySize);
-        vBuffer.get(nv21, ySize, vSize);
-        uBuffer.get(nv21, ySize + vSize, uSize);
-
-        YuvImage yuvImage = new YuvImage(nv21, ImageFormat.NV21, image.getWidth(), image.getHeight(), null);
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, yuvImage.getWidth(), yuvImage.getHeight()), 75, out);
-
-        byte[] imageBytes = out.toByteArray();
-        return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-    }
 
     @Override
     @WorkerThread
@@ -124,20 +104,22 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
     protected AnalysisResult analyzeImage(ImageProxy image, int rotationDegrees) {
         try {
             if (mModule == null) {
-                setClassText(modelType);
+               setClassText(modelType);
+
                 switch (modelType){
                     case "beverage":
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "noodle":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle.ptl"));
                         break;
                     case "snack":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "daewon.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "snack.ptl"));
                         break;
                     default:
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "daewon.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), matchTxt(modelType).substring(0,matchTxt(modelType).length()-4)+".ptl"));
                         break;
+
 
                 }
             }
@@ -166,11 +148,13 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         return new AnalysisResult(results);
     }
 
-    private void setClassText(String modelType){
+
+
+    private void setClassText(String type){
         // 물체리스트의 이름을넣음
+        String fileName = "";
         try {
-            String fileName = "";
-            switch (modelType){
+            switch (type){
                 case "beverage":
                     fileName = "beverage.txt";
                     break;
@@ -178,12 +162,15 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                     fileName = "noodle.txt";
                     break;
                 case "snack":
-                    fileName = "daewon.txt";
+                    fileName = "snack.txt";
                     break;
                 default:
-                    fileName = "daewon.txt";
+                    fileName = matchTxt(type);
                     break;
             }
+
+
+
 
             BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open(fileName)));
             String line;
@@ -194,12 +181,56 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
             PrePostProcessor.mClasses = new String[classes.size()];
             classes.toArray(PrePostProcessor.mClasses);
             PrePostProcessor.mOutputColumn = classes.size() + 5;
+
         } catch (IOException e) {
             Log.e("Object Detection", "Error reading assets", e);
             finish();
         }
+
     }
+    public String matchTxt(String type){
 
+        List<String> txtList = new ArrayList<>(Arrays.asList("beverage.txt", "noodle.txt", "snack.txt"));
 
+        for(String filename :txtList) {
+
+            try{
+                BufferedReader br = new BufferedReader(new InputStreamReader(getAssets().open(filename)));
+                String line;
+                while ((line = br.readLine()) != null) {
+
+                    if(line.contains(type)){
+                        return filename;
+                    }
+                }
+            } catch (IOException e) {
+                Log.e("Object Detection", "Error reading assets", e);
+                finish();
+            }
+        }
+        return type;
+    }
+    private Bitmap imgToBitmap(Image image) {
+        Image.Plane[] planes = image.getPlanes();
+        ByteBuffer yBuffer = planes[0].getBuffer();
+        ByteBuffer uBuffer = planes[1].getBuffer();
+        ByteBuffer vBuffer = planes[2].getBuffer();
+
+        int ySize = yBuffer.remaining();
+        int uSize = uBuffer.remaining();
+        int vSize = vBuffer.remaining();
+
+        byte[] nv21 = new byte[ySize + uSize + vSize];
+        yBuffer.get(nv21, 0, ySize);
+        vBuffer.get(nv21, ySize, vSize);
+        uBuffer.get(nv21, ySize + vSize, uSize);
+
+        YuvImage yuvImage = new YuvImage(nv21, ImageFormat.NV21, image.getWidth(), image.getHeight(), null);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        yuvImage.compressToJpeg(new Rect(0, 0, yuvImage.getWidth(), yuvImage.getHeight()), 75, out);
+
+        byte[] imageBytes = out.toByteArray();
+        return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+    }
 
 }

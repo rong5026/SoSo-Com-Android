@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,12 @@ import com.example.pytorchandroid.utility.Constants;
 
 import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class search_fragment extends Fragment implements View.OnClickListener{
 
@@ -50,7 +56,10 @@ public class search_fragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.search, container, false);
         Button button = (Button) view.findViewById(R.id.search_button);
         button.setOnClickListener(this);
-
+        if(Build.VERSION.SDK_INT >= 23){
+            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.INTERNET,
+                    Manifest.permission.RECORD_AUDIO},Constants.PERMISSION);
+        }
         textView = (TextView) view.findViewById(R.id.search_text);
 
 
@@ -60,9 +69,30 @@ public class search_fragment extends Fragment implements View.OnClickListener{
 
         inputSpeak = 1;
 
-
         return view;
     }
+    private int matchObject(String type){
+
+        List<String> txtList = new ArrayList<>(Arrays.asList("beverage.txt", "noodle.txt", "snack.txt"));
+
+        for(String filename :txtList) {
+
+            try{
+                BufferedReader br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open(filename)));
+                String line;
+                while ((line = br.readLine()) != null) {
+
+                    if(line.contains(type)){
+                        return 1;
+                    }
+                }
+            } catch (IOException e) {
+                Log.e("Object Detection", "Error reading assets", e);
+            }
+        }
+        return 0;
+    }
+
     public void onClick(View view) {
 
         if(System.currentTimeMillis() <= delay){
@@ -75,10 +105,17 @@ public class search_fragment extends Fragment implements View.OnClickListener{
             mRecognizer.startListening(intent); // 듣기 시작
         }
         else{
+            if(matchObject(textView.getText().toString())==1){
+                Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
+                intent.putExtra("modelType", textView.getText().toString());
+                startActivity(intent);
+            }
+            else{
+                HomeActivity.textToSpeech.speak("등록되지 않은 물품입니다. 다른물품을 검색해주세요.", TextToSpeech.QUEUE_ADD, null);
+                textView.setText("음성인식");
+            }
             inputSpeak = 1;
-            Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
-            intent.putExtra("modelType", textView.getText().toString());
-            startActivity(intent);
+
         }
 
 
