@@ -73,10 +73,25 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
         mResultView.setResults(result.mResults);
         mResultView.invalidate();
 
-        for(Result results :result.mResults){
-            HomeActivity.textToSpeech.speak(PrePostProcessor.mClasses[results.classIndex], TextToSpeech.QUEUE_ADD,null);
-        }
 
+
+        if(modelType.equals("beverage") || modelType.equals("noodle") || modelType.equals("snack")){
+
+            for(Result results :result.mResults){
+                HomeActivity.textToSpeech.speak(PrePostProcessor.mClasses[results.classIndex], TextToSpeech.QUEUE_ADD,null);
+            }
+        }
+        else{
+            for(Result results :result.mResults){
+
+                if(PrePostProcessor.mClasses[results.classIndex].contains(modelType)) {
+                    HomeActivity.textToSpeech.speak(PrePostProcessor.mClasses[results.classIndex], TextToSpeech.QUEUE_ADD, null);
+                    HomeActivity.textToSpeech.speak("을 발견하였습니다", TextToSpeech.QUEUE_ADD, null);
+                    
+
+                }
+            }
+        }
     }
 
 
@@ -118,8 +133,12 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
                         break;
                     case "snack":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "daewon.ptl"));
                         break;
+                    default:
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "daewon.ptl"));
+                        break;
+
                 }
             }
         } catch (IOException e) {
@@ -159,7 +178,10 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
                     fileName = "noodle.txt";
                     break;
                 case "snack":
-                    fileName = "snack.txt";
+                    fileName = "daewon.txt";
+                    break;
+                default:
+                    fileName = "daewon.txt";
                     break;
             }
 

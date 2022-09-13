@@ -46,6 +46,7 @@ public class HomeActivity extends FragmentActivity{
                     textToSpeech.setLanguage(Locale.KOREAN);
                 }
             }
+
         });
     }
 
@@ -67,12 +68,11 @@ public class HomeActivity extends FragmentActivity{
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    moveTaskToBack(true);
+                     moveTaskToBack(true);
                     finishAndRemoveTask();
                     System.exit(0);
                 }
             },2000);
-
         }
     }
 
@@ -118,12 +118,12 @@ public class HomeActivity extends FragmentActivity{
 
     // TTS
     public void startTextToString(String text){
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+        textToSpeech.speak(text, TextToSpeech. QUEUE_FLUSH,null);
     }
-    public void startSearchTextToString(String text){
-        textToSpeech.setSpeechRate(0.7f);
-        textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+    public void startTextToStringAdd(String text){
+        textToSpeech.speak(text, TextToSpeech. QUEUE_ADD,null);
     }
+
     //텍스트 문구
     public void showTest(String text){
         Toast.makeText(this, text,Toast.LENGTH_SHORT).show();

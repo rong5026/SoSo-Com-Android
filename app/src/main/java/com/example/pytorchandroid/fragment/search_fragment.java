@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,10 @@ public class search_fragment extends Fragment implements View.OnClickListener{
     private Context context;
     private Intent intent;
     private SpeechRecognizer mRecognizer;
+    private int inputSpeak;
     private  TextView textView;
+    private long delay;
+
     public search_fragment(Context context) {
         this.context = context;
     }
@@ -58,25 +63,38 @@ public class search_fragment extends Fragment implements View.OnClickListener{
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,getActivity().getPackageName()); // 여분의 키
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,"ko-KR"); // 언어 설정
 
+        inputSpeak = 1;
 
 
         return view;
     }
     public void onClick(View view) {
 
-        mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
-        mRecognizer.setRecognitionListener(listener); // 리스너 설정
-        mRecognizer.startListening(intent); // 듣기 시작
+        if(System.currentTimeMillis() <= delay){
+            inputSpeak =0;
+        }
 
-//        Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
-//        intent.putExtra("modelType", "noodle");
-//        startActivity(intent);
+        if(inputSpeak == 1){
+            mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
+            mRecognizer.setRecognitionListener(listener); // 리스너 설정
+            mRecognizer.startListening(intent); // 듣기 시작
+        }
+        else{
+            inputSpeak = 1;
+            Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
+            intent.putExtra("modelType", textView.getText().toString());
+            startActivity(intent);
+        }
+
+
+
     }
 
     private RecognitionListener listener = new RecognitionListener() {
         @Override
         public void onReadyForSpeech(Bundle params) {
             // 말하기 시작할 준비가되면 호출
+            delay = 0;
             Toast.makeText(getActivity().getApplicationContext(),"음성인식 시작",Toast.LENGTH_SHORT).show();
         }
         @Override
@@ -152,9 +170,18 @@ public class search_fragment extends Fragment implements View.OnClickListener{
                 textView.setText(matches.get(i));
             }
 
-            ((HomeActivity)context).startTextToString("찾으시는 물건이");
-            ((HomeActivity)context).startSearchTextToString(textView.getText().toString());
-            ((HomeActivity)context).startTextToString("맞으신가요");
+
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ((HomeActivity)context).startTextToStringAdd("찾으시는 물건이");
+                    ((HomeActivity)context).startTextToStringAdd(textView.getText().toString());
+                    ((HomeActivity)context).startTextToStringAdd("맞으시면 3초안에 화면을 한번더 눌러주세요");
+                }
+            },500);
+            delay = System.currentTimeMillis()+9000;
         }
 
         @Override
@@ -172,6 +199,13 @@ public class search_fragment extends Fragment implements View.OnClickListener{
     public void onResume() {
         super.onResume();
         ((HomeActivity)context).startTextToString("검색");
+
+        if(mRecognizer!=null){
+            mRecognizer.destroy();
+            mRecognizer.cancel();
+            mRecognizer=null;
+        }
     }
+
 
 }
