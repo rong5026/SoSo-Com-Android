@@ -3,6 +3,7 @@ package com.example.pytorchandroid.fragment;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -42,12 +44,21 @@ public class search_fragment extends Fragment implements View.OnClickListener{
     private Context context;
     private Intent intent;
     private SpeechRecognizer mRecognizer;
-    private int inputSpeak;
     private  TextView textView;
+    private int mDoubleClickFlag = 0;
     private long delay;
+    private MediaPlayer mediaPlayer;
+    private int inputSpeak;
 
     public search_fragment(Context context) {
         this.context = context;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.search_explain);
     }
 
     @Override
@@ -61,7 +72,6 @@ public class search_fragment extends Fragment implements View.OnClickListener{
                     Manifest.permission.RECORD_AUDIO},Constants.PERMISSION);
         }
         textView = (TextView) view.findViewById(R.id.search_text);
-
 
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,getActivity().getPackageName()); // 여분의 키
@@ -93,33 +103,49 @@ public class search_fragment extends Fragment implements View.OnClickListener{
         return 0;
     }
 
-    public void onClick(View view) {
 
-        if(System.currentTimeMillis() <= delay){
-            inputSpeak =0;
-        }
+    @Override
+    public void onClick(View v) {
+        mDoubleClickFlag++;
+        Handler handler = new Handler();
+        Runnable clickRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (mDoubleClickFlag >= 2) {
+                    if (mediaPlayer.isPlaying()){
+                        mediaPlayer.stop();
+                    }
 
-        if(inputSpeak == 1){
-            mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
-            mRecognizer.setRecognitionListener(listener); // 리스너 설정
-            mRecognizer.startListening(intent); // 듣기 시작
-        }
-        else{
-            if(matchObject(textView.getText().toString())==1){
-                Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
-                intent.putExtra("modelType", textView.getText().toString());
-                startActivity(intent);
+                    mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
+                    mRecognizer.setRecognitionListener(listener); // 리스너 설정
+                    mRecognizer.startListening(intent); // 듣기 시작
+                }
+                else {
+                    if(System.currentTimeMillis() <= delay){
+                        if(matchObject(textView.getText().toString())==1){
+                            ((HomeActivity)context).startTextToString(textView.getText().toString() + "탐지를 시작합니다!");
+                            Intent intent = new Intent(getActivity(), ObjectDetectionActivity.class);
+                            intent.putExtra("modelType", textView.getText().toString());
+                            startActivity(intent);
+                        }
+                        else{
+                            HomeActivity.textToSpeech.speak("등록되지 않은 물품입니다. 다른물품을 검색해주세요.", TextToSpeech.QUEUE_ADD, null);
+                            textView.setText("음성인식");
+                        }
+                    }
+                    else{
+                        if (mediaPlayer == null){
+                            mediaPlayer = MediaPlayer.create(getActivity(), R.raw.search_explain);
+                        }
+                        mediaPlayer.start();
+                    }
+                }
+                mDoubleClickFlag = 0;
             }
-            else{
-                HomeActivity.textToSpeech.speak("등록되지 않은 물품입니다. 다른물품을 검색해주세요.", TextToSpeech.QUEUE_ADD, null);
-                textView.setText("음성인식");
-            }
-            inputSpeak = 1;
-
+        };
+        if( mDoubleClickFlag == 1 ) {
+            handler.postDelayed( clickRunnable, Constants.CLICK_DELAY );
         }
-
-
-
     }
 
     private RecognitionListener listener = new RecognitionListener() {
@@ -230,7 +256,7 @@ public class search_fragment extends Fragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
-        ((HomeActivity)context).startTextToString("검색");
+        ((HomeActivity)context).startTextToString("검색메뉴 입니다.");
 
         if(mRecognizer!=null){
             mRecognizer.destroy();
@@ -239,5 +265,20 @@ public class search_fragment extends Fragment implements View.OnClickListener{
         }
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mediaPlayer.stop();
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.search_explain);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer !=null){
+            mediaPlayer.release();
+            mediaPlayer =null;
+        }
+    }
 
 }

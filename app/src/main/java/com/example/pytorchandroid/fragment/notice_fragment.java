@@ -6,6 +6,7 @@ import android.content.Context;
 import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,11 +22,15 @@ import com.example.pytorchandroid.MainActivity;
 import com.example.pytorchandroid.R;
 import com.example.pytorchandroid.utility.Constants;
 
+import java.io.IOException;
+
 public class notice_fragment extends Fragment implements View.OnClickListener{
 
 
     private MediaPlayer mediaPlayer;
+    private MediaPlayer explainPlayer;
     private Context context;
+    private int mDoubleClickFlag = 0;
 
     public notice_fragment(Context context) {
         this.context = context;
@@ -35,7 +40,8 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.message);
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.first);
+        explainPlayer = MediaPlayer.create(getActivity(), R.raw.main_explain);
         mediaPlayer.start();
     }
 
@@ -53,18 +59,28 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
     public void onPause() {
         super.onPause();
         mediaPlayer.stop();
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.first);
+        explainPlayer.stop();
+        explainPlayer = MediaPlayer.create(getActivity(), R.raw.main_explain);
     }
+
 
     @Override
     public void onResume() {
         super.onResume();
-        ((HomeActivity)context).startTextToString("안내문구");
+        ((HomeActivity)context).startTextToString("안내문구 페이지 입니다.");
 
     }
 
     public void onClick(View view){
-
-        mediaPlayer.start();
+        if (explainPlayer == null){
+            explainPlayer = MediaPlayer.create(getActivity(), R.raw.main_explain);
+        }
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+            mediaPlayer = MediaPlayer.create(getActivity(), R.raw.first);
+        }
+        explainPlayer.start();
     }
 
     //mp3 재생 리소스 지워주기
@@ -74,6 +90,10 @@ public class notice_fragment extends Fragment implements View.OnClickListener{
         if(mediaPlayer !=null){
             mediaPlayer.release();
             mediaPlayer =null;
+        }
+        if(explainPlayer !=null){
+            explainPlayer.release();
+            explainPlayer =null;
         }
     }
 }
