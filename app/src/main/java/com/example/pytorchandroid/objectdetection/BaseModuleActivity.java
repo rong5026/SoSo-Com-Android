@@ -15,6 +15,8 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pytorchandroid.HomeActivity;
+
 public class BaseModuleActivity extends AppCompatActivity {
     protected HandlerThread mBackgroundThread;
     protected Handler mBackgroundHandler;
@@ -46,6 +48,10 @@ public class BaseModuleActivity extends AppCompatActivity {
     protected void onDestroy() {
         stopBackgroundThread();
         super.onDestroy();
+
+        if(HomeActivity.textToSpeech != null) {
+            HomeActivity.textToSpeech.stop();
+        }
     }
 
     protected void stopBackgroundThread() {

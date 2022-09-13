@@ -79,6 +79,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
 
     }
 
+
     private Bitmap imgToBitmap(Image image) {
         Image.Plane[] planes = image.getPlanes();
         ByteBuffer yBuffer = planes[0].getBuffer();
