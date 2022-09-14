@@ -75,6 +75,10 @@
 |<sub><sup>13</sup></sub>|<sub><sup>동서오레오초콜릿샌드위치쿠키100G</sup></sub>|<sub><sup>26</sup></sub>|<sub><sup>프링글스치즈맛110G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>오리온고소미80G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 
 <img src="https://user-images.githubusercontent.com/102522202/190087110-8d19a272-82df-4ae3-9b47-dd42cebf4179.png" width="800" height="400"/>
+<p>
+  <img src="https://user-images.githubusercontent.com/102522202/190087677-b9825d02-9ec7-4206-8e0b-680948d8af8a.jpg" width="400" height="400"/>
+  <img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" width="400" height="400"/>
+</p>
 
 ### 🍜 라면품목 데이터셋
 
