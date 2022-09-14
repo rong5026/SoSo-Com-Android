@@ -77,12 +77,6 @@
 |<sub><sup>12</sup></sub>|<sub><sup>크라운국희땅콩샌드155G</sup></sub>|<sub><sup>25</sup></sub>|<sub><sup>롯데)오징어땅콩90G</sup></sub>|<sub><sup>38</sup></sub>|<sub><sup>농심바나나킥75G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 |<sub><sup>13</sup></sub>|<sub><sup>동서오레오초콜릿샌드위치쿠키100G</sup></sub>|<sub><sup>26</sup></sub>|<sub><sup>프링글스치즈맛110G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>오리온고소미80G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 
-<img src="https://user-images.githubusercontent.com/102522202/190087110-8d19a272-82df-4ae3-9b47-dd42cebf4179.png" width="800" height="400"/>
-<p>
-  <img src="https://user-images.githubusercontent.com/102522202/190087677-b9825d02-9ec7-4206-8e0b-680948d8af8a.jpg" width="400" height="400"/>
-  <img src="https://user-images.githubusercontent.com/102522202/190088011-b0e189a7-e74a-4eb7-a7f7-36c4907da59e.jpg" width="400" height="400"/>
-</p>
-
 ### 🍜 Noodle DataSet
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
@@ -110,8 +104,9 @@
 
 <img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" width="800" height="400"/>
 <p>
-  <img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="400" height="400"/>
-  <img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" width="400" height="400"/>
+  <img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="300" height="300"/>
+  <img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" width="300" height="300"/>
+  <img src="https://user-images.githubusercontent.com/102522202/190088011-b0e189a7-e74a-4eb7-a7f7-36c4907da59e.jpg" width="300" height="300"/>
 </p>
 
 
