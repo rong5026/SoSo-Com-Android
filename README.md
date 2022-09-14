@@ -36,6 +36,26 @@
 * ptl모델로 변환 후 android에서 사용
 
 
+### 🥤 음료품목 데이터셋
+
+|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
+|----|----|----|----|----|----|----|----|
+|<sub><sup>1</sup></sub>|<sub><sup>한국쥬맥스)모구모구리치맛</sup></sub>|<sub><sup>14</sup></sub>|<sub><sup>롯데게토레이240ML</sup></sub>|<sub><sup>27</sup></sub>|<sub><sup>롯데마운틴듀250ML</sup></sub>|<sub><sup>40</sup></sub>|<sub><sup>코카콜라)킨사이다185ML</sup></sub>|
+|<sub><sup>2</sup></sub>|<sub><sup>한국쥬맥스)모구모구복숭아향</sup></sub>|<sub><sup>15</sup></sub>|<sub><sup>코카콜라190ML</sup></sub>|<sub><sup>28</sup></sub>|<sub><sup>롯데마운틴듀400ML</sup></sub>|<sub><sup>41</sup></sub>|<sub><sup>코카콜라)코카콜라350ML</sup></sub>|
+|<sub><sup>3</sup></sub>|<sub><sup>롯데트로피카나스파클링파인애플355ML</sup></sub>|<sub><sup>16</sup></sub>|<sub><sup>일화맥콜250ML</sup></sub>|<sub><sup>29</sup></sub>|<sub><sup>코카콜라제로500ML</sup></sub>|<sub><sup>42</sup></sub>|<sub><sup>코카콜라오리지널300ML</sup></sub>|
+|<sub><sup>4</sup></sub>|<sub><sup>동아포카리스웨트(캔)340ML</sup></sub>|<sub><sup>17</sup></sub>|<sub><sup>롯데핫식스더킹파워355ML</sup></sub>|<sub><sup>30</sup></sub>|<sub><sup>롯데펩시콜라600ML</sup></sub>|<sub><sup>43</sup></sub>|<sub><sup>동아포카리스웨트500ML</sup></sub>|
+|<sub><sup>5</sup></sub>|<sub><sup>해태)코코팜복숭아300ML</sup></sub>|<sub><sup>18</sup></sub>|<sub><sup>코코팜망고코넛340ML</sup></sub>|<sub><sup>31</sup></sub>|<sub><sup>코카토레타500ML</sup></sub>|<sub><sup>44</sup></sub>|<sub><sup>해태갈배사이다238ML</sup></sub>|
+|<sub><sup>6</sup></sub>|<sub><sup>롯데)미린다오렌지355ML</sup></sub>|<sub><sup>19</sup></sub>|<sub><sup>농심)파워오투애플키워향</sup></sub>|<sub><sup>32</sup></sub>|<sub><sup>코카콜라355ML</sup></sub>|<sub><sup>45</sup></sub>|<sub><sup>롯데핫식스자몽250ML</sup></sub>|
+|<sub><sup>7</sup></sub>|<sub><sup>해태)복숭아봉봉340ML</sup></sub>|<sub><sup>20</sup></sub>|<sub><sup>농심)파워오투오렌지레몬향</sup></sub>|<sub><sup>33</sup></sub>|<sub><sup>롯데)2%부족할때아쿠아500ML</sup></sub>|<sub><sup>46</sup></sub>|<sub><sup>해태갈배사이다355ML</sup></sub>|
+|<sub><sup>8</sup></sub>|<sub><sup>롯데)펩시콜라210ML</sup></sub>|<sub><sup>21</sup></sub>|<sub><sup>코카)제로코카콜라215ML</sup></sub>|<sub><sup>34</sup></sub>|<sub><sup>농심)파워오투아이스베리향</sup></sub>|<sub><sup>47</sup></sub>|<sub><sup>코카콜라제로250ML</sup></sub>|
+|<sub><sup>9</sup></sub>|<sub><sup>코카환타오렌지250ML</sup></sub>|<sub><sup>22</sup></sub>|<sub><sup>코카)스프라이트215ML</sup></sub>|<sub><sup>35</sup></sub>|<sub><sup>코카스프라이트500ML</sup></sub>|<sub><sup>48</sup></sub>|<sub><sup>롯데마운틴듀355ML</sup></sub>|
+|<sub><sup>10</sup></sub>|<sub><sup>해태갈아만든배340ML</sup></sub>|<sub><sup>23</sup></sub>|<sub><sup>코카환타오렌지185ML</sup></sub>|<sub><sup>36</sup></sub>|<sub><sup>동아오츠카데미소다자몽250ML</sup></sub>|<sub><sup>49</sup></sub>|<sub><sup>롯데레쓰비175ML</sup></sub>|
+|<sub><sup>11</sup></sub>|<sub><sup>농심웰치스포도355ml</sup></sub>|<sub><sup>24</sup></sub>|<sub><sup>해태갈배사이다210ML</sup></sub>|<sub><sup>37</sup></sub>|<sub><sup>롯데사랑초톡톡스파클링330ML</sup></sub>|<sub><sup>50</sup></sub>|<sub><sup>롯데밀키스500ML</sup></sub>|
+|<sub><sup>12</sup></sub>|<sub><sup>코카파워에이드MB520ML</sup></sub>|<sub><sup>25</sup></sub>|<sub><sup>코카환타오렌지215ML</sup></sub>|<sub><sup>38</sup></sub>|<sub><sup>조지아고티카빈티지블랙390ML</sup></sub>|<sub><sup>51</sup></sub>|<sub><sup>코카환타포도250ML</sup></sub>|
+|<sub><sup>13</sup></sub>|<sub><sup>코카파워에이드MB600ML</sup></sub>|<sub><sup>26</sup></sub>|<sub><sup>해태갈배사이다500ML</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>롯데칸타타아메리카노200ML</sup></sub>|<sub><sup>52</sup></sub>|<sub><sup>일화)맥콜500ML</sup></sub>|
+
+
+
 ### 🍭 과자품목 데이터셋
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
