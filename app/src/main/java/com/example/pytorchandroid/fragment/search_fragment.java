@@ -85,6 +85,7 @@ public class search_fragment extends Fragment implements View.OnClickListener{
 
         List<String> txtList = new ArrayList<>(Arrays.asList("beverage.txt", "noodle.txt", "snack.txt"));
 
+
         for(String filename :txtList) {
 
             try{
@@ -92,7 +93,7 @@ public class search_fragment extends Fragment implements View.OnClickListener{
                 String line;
                 while ((line = br.readLine()) != null) {
 
-                    if(line.contains(type)){
+                    if(line.contains(type.replace(" ",""))){
                         return 1;
                     }
                 }
@@ -258,6 +259,7 @@ public class search_fragment extends Fragment implements View.OnClickListener{
     public void onResume() {
         super.onResume();
         ((HomeActivity)context).startTextToString("검색메뉴 입니다.");
+
 
         if(mRecognizer!=null){
             mRecognizer.destroy();
