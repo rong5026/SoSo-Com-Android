@@ -17,7 +17,7 @@
 * https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)
 * https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)
 * https://www.youtube.com/shorts/z5ywaMWtQys (라면)
-* 점자표시가 되어있는 품목들도 있지만, 약하거나 없는 품목들이 다수
+* 점자표시가 되어있는 품목들도 있지만, 미흡하거나 없는 품목들이 다수
 * 따라서 핸드폰을 사용하여 어떤 품목인지 알려주는 서비스를 생각하게 되었음.
 
 
@@ -101,8 +101,10 @@
 |<sub><sup>20</sup></sub>|<sub><sup>오뚜기라면볶이120G</sup></sub>|<sub><sup>40</sup></sub>|<sub><sup>오뚜기크림진짬뽕105G</sup></sub>|<sub><sup>60</sup></sub>|<sub><sup>농심)앵그리짜파구리큰사발108G</sup></sub>|<sub><sup>80</sup></sub>|<sub><sup>멸치맛쌀국수92G</sup></sub>|
 
 <img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" width="800" height="400"/>
-<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="800" height="400"/>
-
+<p>
+  <img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="400" height="400"/>
+  <img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" width="400" height="400"/>
+</p>
 
 
 ### 🌱 참조
