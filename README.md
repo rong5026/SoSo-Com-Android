@@ -28,7 +28,7 @@
 * 음성으로 입력한 품목이 탐지될경우 알려주는 기능
 
 ### 🌱 System Architecture
-<img src="https://user-images.githubusercontent.com/102522202/190139506-bbfbdfa5-e4c2-4d75-b655-63a74e47b57a.png" width="1000" height="500"/>
+<img src="https://user-images.githubusercontent.com/102522202/190141921-53f38bcd-d9f3-4da6-9327-511af60ae3ba.png" width="1000" height="500"/>
 
 
 ### 🌱 DataSet
