@@ -109,7 +109,7 @@
 
 ---------------------------------------
 
-### 📌 Result
+### 📌 Train Result
 <img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" width="800" height="400"/>
 <p>
   <img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="300" height="300"/>
