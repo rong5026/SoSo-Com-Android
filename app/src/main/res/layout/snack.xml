@@ -5,11 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/snack_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="과자"
+        android:textSize="40sp"
+        android:fontFamily="@font/gmarket_sans_ttf_bold"
+        android:textColor="@color/black"
+        style="?attr/materialButtonOutlinedStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
