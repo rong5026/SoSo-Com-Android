@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.TextureView;
@@ -21,7 +20,6 @@ import androidx.camera.core.ImageProxy;
 import com.example.pytorchandroid.HomeActivity;
 import com.example.pytorchandroid.MainActivity;
 import com.example.pytorchandroid.R;
-import com.example.pytorchandroid.utility.Constants;
 
 import org.pytorch.IValue;
 import org.pytorch.LiteModuleLoader;
@@ -37,7 +35,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetectionActivity.AnalysisResult> {
     private Module mModule = null;
@@ -108,7 +105,7 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
 
                 switch (modelType){
                     case "beverage":
-                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage.ptl"));
+                        mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "beverage_2.ptl"));
                         break;
                     case "noodle":
                         mModule = LiteModuleLoader.load(MainActivity.assetFilePath(getApplicationContext(), "noodle.ptl"));
@@ -189,7 +186,9 @@ public class ObjectDetectionActivity extends AbstractCameraXActivity<ObjectDetec
 
     }
     public String matchTxt(String type){
-
+        Log.e("type", type);
+        type = type.replace(" ", "");
+        Log.e("aftertype", type);
         List<String> txtList = new ArrayList<>(Arrays.asList("beverage.txt", "noodle.txt", "snack.txt"));
 
         for(String filename :txtList) {
