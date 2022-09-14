@@ -9,8 +9,12 @@
   <img src="https://img.shields.io/badge/Yolov5-00FFFF?style=flat-square&logo=yolo&logoColor=white"/>
 </p>
 
+---------------------------------------
 
+### 📹 Demonstration video
+* [https://youtu.be/CI2B0MH9_zg](https://youtu.be/CI2B0MH9_zg)
 
+---------------------------------------
 
 ### 🌱 Background
 * [뉴스기사](https://www.fnnews.com/news/202203211831219738) 및 유튜버 ‘원샷한솔’님의 컨텐츠들을 보면서 점자 표시 미흡으로 인한 시각장애인분들의 불편함을 인지
@@ -30,6 +34,7 @@
 ### 🌱 System Architecture
 <img src="https://user-images.githubusercontent.com/102522202/190141921-53f38bcd-d9f3-4da6-9327-511af60ae3ba.png" width="1000" height="500"/>
 
+---------------------------------------
 
 ### 🌱 DataSet
 * AI Hub '상품 이미지' 데이터 사용
@@ -102,6 +107,7 @@
 |<sub><sup>19</sup></sub>|<sub><sup>오뚜기진짜장컵115G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>농심)신라면블랙101G</sup></sub>|<sub><sup>59</sup></sub>|<sub><sup>농심보글보글부대찌개큰사발면</sup></sub>|<sub><sup>79</sup></sub>|<sub><sup>농심김치사발면86G</sup></sub>|
 |<sub><sup>20</sup></sub>|<sub><sup>오뚜기라면볶이120G</sup></sub>|<sub><sup>40</sup></sub>|<sub><sup>오뚜기크림진짬뽕105G</sup></sub>|<sub><sup>60</sup></sub>|<sub><sup>농심)앵그리짜파구리큰사발108G</sup></sub>|<sub><sup>80</sup></sub>|<sub><sup>멸치맛쌀국수92G</sup></sub>|
 
+---------------------------------------
 
 ### 📌 Result
 <img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" width="800" height="400"/>
@@ -111,6 +117,7 @@
   <img src="https://user-images.githubusercontent.com/102522202/190088011-b0e189a7-e74a-4eb7-a7f7-36c4907da59e.jpg" width="300" height="300"/>
 </p>
 
+---------------------------------------
 
 ### 📱 In App
 <p>
@@ -120,6 +127,7 @@
 </p>
 
 
+---------------------------------------
 
 ### 🌱 Reference
 * https://github.com/ultralytics/yolov5
