@@ -57,6 +57,7 @@ public class HomeActivity extends FragmentActivity{
             public void onInit(int status) {
                 if(status != TextToSpeech.SUCCESS){
                     textToSpeech.setLanguage(Locale.KOREAN);
+
                 }
             }
         });
