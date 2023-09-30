@@ -8,15 +8,20 @@
 
 #### 시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
 
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat-square&logo=Google Colab&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Pytorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Yolov5-00FFFF?style=flat-square&logo=yolo&logoColor=white"/>
-</p>
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
 
----------------------------------------
+<img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=Android&logoColor=white"/>
+
+  <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=googlecolab&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Pytorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white"/>
+
+<img src="https://img.shields.io/badge/Yolov5-00FFFF?style=flat&logo=yolo&logoColor=white"/>
+
+</div>
+
+
 
 ### 📹 Demonstration video
 * [https://youtu.be/CI2B0MH9_zg](https://youtu.be/CI2B0MH9_zg)
