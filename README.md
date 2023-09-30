@@ -31,27 +31,43 @@
 
 ## 📌 개요
 - 프로젝트 이름 : SoloCS 나홀로편의점
-- 개발 배경 :[뉴스기사](https://www.fnnews.com/news/202203211831219738) 및 유튜버 ‘원샷한솔’님의 컨텐츠들을 보면서 점자 표시 미흡으로 인한 시각장애인분들의 불편함을 인지<br>
- 점자표시가 되어있는 품목들도 있지만, 미흡하거나 없는 품목들이 다수
- 따라서 핸드폰을 사용하여 어떤 품목인지 알려주는 서비스를 생각하게 되었습니다.
+- 개발 배경 : [뉴스기사](https://www.fnnews.com/news/202203211831219738) 및 유튜버 ‘원샷한솔’님의 컨텐츠를 통한 점자 표시 미흡으로 인한 시각장애인분들의 불편함을 인지<br>
+점자표시가 되어있는 품목들도 있지만, 미흡하거나 없는 품목들이 다수인 문제점을 해결하기위해서 개발하였습니다.
 - 개발 언어 : Java
 - 뉴스기사 <br>
  https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)<br>
  https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)<br>
  https://www.youtube.com/shorts/z5ywaMWtQys (라면)
     
+## 🖥️ 프로젝트 소개
+- 갤럭시 핸드폰을 사용하여 시각장애인에게 어떤 품목인지 알려주는 서비스를 계획하게 되었습니다.
+- 음성인식을 활용하여 어플 실행 및, 사용방법 안내해 줍니다.
+- 카메라를 활용하여 실시간으로 화면에 노출되어있는 품목의 정보를 음성으로 출력합니다.
+- 음성으로 입력한 품목이 탐지될경우 사용자에게 정보를 제공해줍니다.
 
-### 🌱 Service
-* 음성을 활용하여 어플 실행 및, 안내
-* 카메라를 활용하여 실시간으로 화면에 노출되어있는 품목의 정보를 음성으로 출력
-* 음성으로 입력한 품목이 탐지될경우 알려주는 기능
+## 🕰️ 개발 기간
+- 
 
-### 🌱 System Architecture
+## 👬 팀 소개
+- 홍영환 - STT, TTS, Pytorch Android 제작, AI 모델제작 <br>
+- 박대원 -  Pytorch Android 제작, AI 모델제작
+- 조형준 - AI 모델제작
+
+## ⚙️ 프로젝트 주요 기능
+
+### 1. 물품구별
+- 라면, 과자, 음료 분야를 선택 후 카메라에 물품을 비추면 판별
+### 2. 찾고자 하는 품목 검색
+- 음성인식으로 찾고자 하는 품목 검색 후 물품검색 가능
+### 3. 음성인식
+- 음성인식을 통한 앱 실행 및 종료
+
+
+##  💾 시스템 설계도
 <img src="https://user-images.githubusercontent.com/102522202/190141921-53f38bcd-d9f3-4da6-9327-511af60ae3ba.png" width="1000" height="500"/>
 
----------------------------------------
 
-### 🌱 DataSet
+## 🏞️ 데이터
 * AI Hub '상품 이미지' 데이터 사용
 * roboflow를 활용하여 yolov5-pytorch용 데이터셋 구축
 * python을 활용하여 학습 전 데이터 전처리작업 수행
@@ -59,7 +75,7 @@
 * ptl모델로 변환 후 android에서 사용
 
 
-### 🥤 Beverage DataSet
+## 🥤 음료 학습데이터
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
 |----|----|----|----|----|----|----|----|
@@ -79,7 +95,7 @@
 
 
 
-### 🍭 Snack DataSet
+## 🍭 과자 학습데이터
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
 |----|----|----|----|----|----|----|----|
@@ -97,7 +113,7 @@
 |<sub><sup>12</sup></sub>|<sub><sup>크라운국희땅콩샌드155G</sup></sub>|<sub><sup>25</sup></sub>|<sub><sup>롯데)오징어땅콩90G</sup></sub>|<sub><sup>38</sup></sub>|<sub><sup>농심바나나킥75G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 |<sub><sup>13</sup></sub>|<sub><sup>동서오레오초콜릿샌드위치쿠키100G</sup></sub>|<sub><sup>26</sup></sub>|<sub><sup>프링글스치즈맛110G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>오리온고소미80G</sup></sub>|<sub><sup></sup></sub>|<sub><sup></sup></sub>|
 
-### 🍜 Noodle DataSet
+## 🍜 라면 학습데이터
 
 |<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|<sub><sup>순번</sup></sub>|<sub><sup>품목</sup></sub>|
 |----|----|----|----|----|----|----|----|
@@ -122,29 +138,36 @@
 |<sub><sup>19</sup></sub>|<sub><sup>오뚜기진짜장컵115G</sup></sub>|<sub><sup>39</sup></sub>|<sub><sup>농심)신라면블랙101G</sup></sub>|<sub><sup>59</sup></sub>|<sub><sup>농심보글보글부대찌개큰사발면</sup></sub>|<sub><sup>79</sup></sub>|<sub><sup>농심김치사발면86G</sup></sub>|
 |<sub><sup>20</sup></sub>|<sub><sup>오뚜기라면볶이120G</sup></sub>|<sub><sup>40</sup></sub>|<sub><sup>오뚜기크림진짬뽕105G</sup></sub>|<sub><sup>60</sup></sub>|<sub><sup>농심)앵그리짜파구리큰사발108G</sup></sub>|<sub><sup>80</sup></sub>|<sub><sup>멸치맛쌀국수92G</sup></sub>|
 
----------------------------------------
 
-### 📌 Train Result
-<img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" width="800" height="400"/>
-<p>
-  <img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" width="300" height="300"/>
-  <img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" width="300" height="300"/>
-  <img src="https://user-images.githubusercontent.com/102522202/190088011-b0e189a7-e74a-4eb7-a7f7-36c4907da59e.jpg" width="300" height="300"/>
-</p>
+## 📌 학습 결과
 
----------------------------------------
+|<img src="https://user-images.githubusercontent.com/101173462/189529335-e0d640fe-a82a-4832-a9d4-49555d667882.png" height="400" width="800" >|
+|:---:|
+|결과|
 
-### 📱 In App
-<p>
-  <img src="https://user-images.githubusercontent.com/101173462/190165419-fb0c10ac-ab56-44be-adc6-a435112cb758.jpeg" width="300" height="600"/>
-  <img src="https://user-images.githubusercontent.com/101173462/190165447-21b79aa1-1955-4425-a1eb-df2143a217ca.jpeg" width="300" height="600"/>
-  <img src="https://user-images.githubusercontent.com/101173462/190165471-231b63b9-c63d-4c07-91aa-97365e7dd886.jpeg" width="300" height="600"/>
-</p>
+|<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" height="100%" width="700" >|
+|:---:|
+|라면|
+
+|<img src="https://user-images.githubusercontent.com/101173462/190083588-e2a1ef94-05d2-4450-bf3f-53d6e83e58a6.jpg" height="100%" width="700" >|<img src="https://user-images.githubusercontent.com/102522202/190088011-b0e189a7-e74a-4eb7-a7f7-36c4907da59e.jpg" height="100%" width="700"> |
+|:---:|:---:|
+|음료|과자 |
 
 
----------------------------------------
 
-### 🌱 Reference
+## 📱 앱 화면
+
+|<img src="https://user-images.githubusercontent.com/101173462/190165419-fb0c10ac-ab56-44be-adc6-a435112cb758.jpeg" height="600" width="300" >|
+|:---:|
+|라면|
+
+|<img src="https://user-images.githubusercontent.com/101173462/190165447-21b79aa1-1955-4425-a1eb-df2143a217ca.jpeg" height="100%" width="700" >|<img src="https://user-images.githubusercontent.com/101173462/190165471-231b63b9-c63d-4c07-91aa-97365e7dd886.jpeg" height="100%" width="700"> |
+|:---:|:---:|
+|과자|음료 |
+
+
+
+## 🌱 참고
 * https://github.com/ultralytics/yolov5
 * https://github.com/pytorch/android-demo-app/tree/master/ObjectDetection
 * https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64
