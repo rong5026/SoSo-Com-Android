@@ -5,8 +5,10 @@
   <br />
 나홀로편의점
 </h1>
+<p align="center">
+   시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
 
- 시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
+</p>
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
