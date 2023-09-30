@@ -145,7 +145,7 @@
 |:---:|
 |결과|
 
-|<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" height="350" width="900" >|
+|<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" height="400" width="900" >|
 |:---:|
 |라면|
 
