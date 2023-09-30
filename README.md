@@ -1,5 +1,12 @@
-## 나홀로편의점
-### 시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
+<h1 align="center">
+  <a href="https://github.com/rong5026/android" title="AwesomeCV Documentation">
+    <img alt="AwesomeCV" src="https://github.com/stock-price-calculator/tradingbot/assets/77156858/9a32b88d-d66f-40d9-a0b4-c07021e68284" width="100%" height="100%" />
+  </a>
+  <br />
+나홀로편의점
+</h1>
+
+#### 시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
 
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
