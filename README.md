@@ -7,7 +7,7 @@
 </h1>
 <p align="center">
    시각장애인분들의 편의성 증진을 위한 품목 구별 앱서비스입니다.
-
+  
 </p>
 
 <div align="center">
@@ -37,9 +37,10 @@
 - 뉴스기사 <br>
  https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)<br>
  https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)<br>
- https://www.youtube.com/shorts/z5ywaMWtQys (라면)
-    
+ https://www.youtube.com/shorts/z5ywaMWtQys (라면) <br>
+ - <a href="https://do.sejong.ac.kr/ko/mypage/programs/view/2582?p=1">[소프트웨어학과]</a> 제 4회 소프트웨어학과 1학기 학술제 최우우상
 ## 🖥️ 프로젝트 소개
+
 - 갤럭시 핸드폰을 사용하여 시각장애인에게 어떤 품목인지 알려주는 서비스를 계획하게 되었습니다.
 - 음성인식을 활용하여 어플 실행 및, 사용방법 안내해 줍니다.
 - 카메라를 활용하여 실시간으로 화면에 노출되어있는 품목의 정보를 음성으로 출력합니다.
