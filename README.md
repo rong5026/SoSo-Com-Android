@@ -25,10 +25,10 @@
 
 
 
-### 📹 Demonstration video
-* [https://youtu.be/CI2B0MH9_zg](https://youtu.be/CI2B0MH9_zg)
+## 📹 Demonstration video
+- [https://youtu.be/CI2B0MH9_zg](https://youtu.be/CI2B0MH9_zg)
 
----------------------------------------
+
 
 ## 📌 개요
 - 프로젝트 이름 : SoloCS 나홀로편의점
