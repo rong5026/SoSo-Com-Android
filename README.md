@@ -25,9 +25,8 @@
 
 
 
-## 📹 Demonstration video
+## 📹 시연 영상
 - [https://youtu.be/CI2B0MH9_zg](https://youtu.be/CI2B0MH9_zg)
-
 
 
 ## 📌 개요
@@ -36,7 +35,7 @@
  점자표시가 되어있는 품목들도 있지만, 미흡하거나 없는 품목들이 다수
  따라서 핸드폰을 사용하여 어떤 품목인지 알려주는 서비스를 생각하게 되었습니다.
 - 개발 언어 : Java
-- 뉴스기사 :
+- 뉴스기사 <br>
  https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)<br>
  https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)<br>
  https://www.youtube.com/shorts/z5ywaMWtQys (라면)
