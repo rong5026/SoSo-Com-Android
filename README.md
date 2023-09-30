@@ -145,7 +145,7 @@
 |:---:|
 |결과|
 
-|<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" height="450" width="900" >|
+|<img src="https://user-images.githubusercontent.com/101173462/189529553-9c7dd6ec-09d9-435a-a5bf-f89feef64126.jpg" height="500" width="900" >|
 |:---:|
 |라면|
 
@@ -157,13 +157,9 @@
 
 ## 📱 앱 화면
 
-|<img src="https://user-images.githubusercontent.com/101173462/190165419-fb0c10ac-ab56-44be-adc6-a435112cb758.jpeg" height="600" width="300" >|
-|:---:|
-|라면|
-
-|<img src="https://user-images.githubusercontent.com/101173462/190165447-21b79aa1-1955-4425-a1eb-df2143a217ca.jpeg" height="100%" width="700" >|<img src="https://user-images.githubusercontent.com/101173462/190165471-231b63b9-c63d-4c07-91aa-97365e7dd886.jpeg" height="100%" width="700"> |
-|:---:|:---:|
-|과자|음료 |
+|<img src="https://user-images.githubusercontent.com/101173462/190165419-fb0c10ac-ab56-44be-adc6-a435112cb758.jpeg" height="600" width="300" >|<img src="https://user-images.githubusercontent.com/101173462/190165447-21b79aa1-1955-4425-a1eb-df2143a217ca.jpeg" height="100%" width="700" >|<img src="https://user-images.githubusercontent.com/101173462/190165471-231b63b9-c63d-4c07-91aa-97365e7dd886.jpeg" height="100%" width="700"> |
+|:---:||:---:|:---:|
+|라면|과자|음료 |
 
 
 
