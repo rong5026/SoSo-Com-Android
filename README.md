@@ -34,7 +34,6 @@
 - 개발 배경 : [뉴스기사](https://www.fnnews.com/news/202203211831219738) 및 유튜버 ‘원샷한솔’님의 컨텐츠를 통한 점자 표시 미흡으로 인한 시각장애인분들의 불편함을 인지<br>
 점자표시가 되어있는 품목들도 있지만, 미흡하거나 없는 품목들이 다수인 문제점을 해결하기위해서 개발하였습니다.
 - 개발 언어 : Java
-- <a href="https://do.sejong.ac.kr/ko/mypage/programs/view/2582?p=1">[소프트웨어학과]</a> 제 4회 소프트웨어학과 1학기 학술제 최우우상
 - 뉴스기사 <br>
  https://www.youtube.com/watch?v=fq5xQaWaMO0 (과자)<br>
  https://www.youtube.com/watch?v=PDDyhWiIZsE (음료)<br>
@@ -47,6 +46,8 @@
 - 카메라를 활용하여 실시간으로 화면에 노출되어있는 품목의 정보를 음성으로 출력합니다.
 - 음성으로 입력한 품목이 탐지될경우 사용자에게 정보를 제공해줍니다.
 
+## 🏆 수상
+- <a href="https://do.sejong.ac.kr/ko/mypage/programs/view/2582?p=1">[소프트웨어학과]</a> 제 4회 소프트웨어학과 1학기 학술제 최우우상
 ## 🕰️ 개발 기간
 - 2022.08.30 ~ 2022.09.13
 
