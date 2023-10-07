@@ -52,7 +52,7 @@
 ## 🏆 수상
 - <a href="https://do.sejong.ac.kr/ko/mypage/programs/view/2582?p=1">[소프트웨어학과]</a> 제 4회 소프트웨어학과 1학기 학술제 최우우상
 ## 🕰️ 개발 기간
-- 2022.08.30 ~ 2022.09.13
+- 2022.08.20 ~ 2022.09.13
 
 ## 👬 팀 소개
 - 홍영환 - STT, TTS, Pytorch Android 제작, AI 모델제작 <br>
